@@ -1,35 +1,36 @@
+import useInput from "./hooks/use-input";
 import useInputValidation from "./hooks/use-inputValidation";
 
 const isNotEmpty = value => value.trim() !== "";
-const isEmail = value => value.includes('@')
+const isEmail = (value) => value.includes('@');
 
 const BasicForm = (props) => {
   const {
     value: enteredName,
     isValid: nameIsValid,
     hasError: nameInputHasError,
-    changeHandler: nameChangeHandler,
-    blurHandler: nameBlurHander,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHander,
     reset: resetNameInput,
-  } = useInputValidation(isNotEmpty);
+  } = useInput(isNotEmpty);
 
   const {
     value: enteredLastName,
     isValid: lastNameIsValid,
     hasError: lastnameInputHasError,
-    changeHandler: lastnameChangeHandler,
-    blurHandler: lastnameBlurHander,
+    valueChangeHandler: lastnameChangeHandler,
+    inputBlurHandler: lastnameBlurHander,
     reset: resetLastNameInput,
-  } = useInputValidation(isNotEmpty);
+  } = useInput(isNotEmpty);
 
   const {
     value: enteredEmail,
     isValid: emailIsValid,
     hasError: emailInputHasError,
-    changeHandler: emailChangeHandler,
-    blurHandler: emailBlurHander,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHander,
     reset: resetEmailInput,
-  } = useInputValidation(isEmail);
+  } = useInput(isEmail);
 
   let formIsValid = false;
 
